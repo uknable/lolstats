@@ -1,7 +1,7 @@
 module AddData
 	extend self
 	def addChampData
-		path = File.join Rails.root, 'lib', 'champstats2.csv'
+		path = File.join Rails.root, 'lib', 'champstats.csv'
 		lines = File.readlines path
 
 		lines.drop(1).each do |line|
@@ -25,12 +25,13 @@ module AddData
 			#mpregenperlvl = columns[17]
 			#mr 			= 	columns[18]
 			#mrperlvl = 	columns[19]
-			#armoratmax = columns[20]
-			#hpatmax = 	columns[21]
-			#hpregenatmax = columns[22]
-			#mpatmax = 	columns[23]
-			#mpregenatmax = columns[24]
-			#asatmax = 	columns[25]
+			#adatmax = columns[20]
+			#armoratmax = columns[21]
+			#hpatmax = 	columns[22]
+			#hpregenatmax = columns[23]
+			#mpatmax = 	columns[24]
+			#mpregenatmax = columns[25]
+			#asatmax = 	columns[26]
 			Champion.create(name: columns[1][/[a-zA-Z\s]+/] ,
 											armor: columns[2].to_f,
 											armorperlvl: columns[3].to_f,
@@ -50,12 +51,13 @@ module AddData
 											mpregenperlvl: columns[17].to_f,
 											mr: columns[18].to_f,
 											mrperlvl: columns[19].to_f,
-											armoratmax: columns[20].to_f,
-											hpatmax: columns[21].to_f,
-											hpregenatmax: columns[22].to_f,
-											mpatmax: columns[23].to_f,
-											mpregenatmax: columns[24].to_f,
-											asatmax: columns[25].to_f)
+											adatmax: columns[20].to_f,
+											armoratmax: columns[21].to_f,
+											hpatmax: columns[22].to_f,
+											hpregenatmax: columns[23].to_f,
+											mpatmax: columns[24].to_f,
+											mpregenatmax: columns[25].to_f,
+											asatmax: columns[26].to_f)
 		end
 	end
 end
