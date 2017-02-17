@@ -1,0 +1,58 @@
+<table>
+	<tr>
+		<th>Name</th>
+		<th>armor</th>
+		<th>armorperlvl</th>
+		<th>ad</th>
+		<th>adperlvl</th>
+		<th>autorange</th>
+		<th>asoffset</th>
+		<th>asperlvl</th>
+		<th>hp</th>
+		<th>hpperlvl</th>
+		<th>hpregen</th>
+		<th>hpregenperlvl</th>
+		<th>ms</th>
+		<th>mp</th>
+		<th>mpperlvl</th>
+		<th>mpregen</th>
+		<th>mpregenperlvl</th>
+		<th>mr</th>
+		<th>mrperlvl</th>
+		<th>armoratmax</th>
+		<th>hpatmax</th>
+		<th>hpregenatmax</th>
+		<th>mpatmax</th>
+		<th>mpregenatmax</th>
+		<th>asatmax</th>
+	</tr>
+	<% @champion.each do |champion| %>
+		<tr>
+			<td><%= champion.name %></td>
+			<td><%= champion.armor %></td>
+			<td><%= champion.armorperlvl %></td>
+			<td><%= champion.ad %></td>
+			<td><%= champion.adperlvl %></td>
+			<td><%= champion.autorange %></td>
+			<td><%= champion.asoffset %></td>
+			<td><%= champion.asperlvl %></td>
+			<td><%= champion.hp %></td>
+			<td><%= champion.hpperlvl %></td>
+			<td><%= champion.hpregen %></td>
+			<td><%= champion.hpregenperlvl %></td>
+			<td><%= champion.ms %></td>
+			<td><%= champion.mp %></td>
+			<td><%= champion.mpperlvl %></td>
+			<td><%= champion.mpregen %></td>
+			<td><%= champion.mpregenperlvl %></td>
+			<td><%= champion.mr %></td>
+			<td><%= champion.mrperlvl %></td>
+			<td><%= champion.armoratmax %></td>
+			<td><%= champion.hpatmax %></td>
+			<td><%= champion.hpregenatmax %></td>
+			<td><%= champion.mpatmax %></td>
+			<td><%= champion.mpregenatmax %></td>
+			<td><%= champion.asatmax %></td>
+		<tr>
+	<% end %>
+</table>
