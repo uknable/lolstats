@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'champion/index'
-
+	resources :champion, only: [:index, :show]
+  root 'champion#index'
 end
