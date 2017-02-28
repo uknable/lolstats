@@ -1,74 +1,29 @@
 <table>
-	<tr>
-		<th>Name<%= link_to 'Sort', 
-			champion_index_path(champion_category: :name) %></th>
-		<th>armor<%= link_to 'Sort', 
-			champion_index_path(champion_category: :armor) %></th>
-		<th>armorperlvl<%= link_to 'Sort', 
-			champion_index_path(champion_category: :armorperlvl) %></th>
-		<th>ad<%= link_to 'Sort', 
-			champion_index_path(champion_category: :ad) %></th>
-		<th>adperlvl<%= link_to 'Sort', 
-			champion_index_path(champion_category: :adperlvl) %></th>
-		<th>autorange<%= link_to 'Sort', 
-			champion_index_path(champion_category: :autorange) %></th>
-		<th>asoffset<%= link_to 'Sort', 
-			champion_index_path(champion_category: :asoffset) %></th>
-		<th>asperlvl<%= link_to 'Sort', 
-			champion_index_path(champion_category: :asperlvl) %></th>
-		<th>hp<%= link_to 'Sort', 
-			champion_index_path(champion_category: :hp) %></th>
-		<th>hpperlvl<%= link_to 'Sort', 
-			champion_index_path(champion_category: :hpperlvl) %></th>
-		<th>hpregen<%= link_to 'Sort', 
-			champion_index_path(champion_category: :hpregen) %></th>
-		<th>hpregenperlvl<%= link_to 'Sort', 
-			champion_index_path(champion_category: :hpregenperlvl) %></th>
-		<th>ms<%= link_to 'Sort', 
-			champion_index_path(champion_category: :ms) %></th>
-		<th>mp<%= link_to 'Sort', 
-			champion_index_path(champion_category: :mp) %></th>
-		<th>mpperlvl<%= link_to 'Sort', 
-			champion_index_path(champion_category: :mpperlvl) %></th>
-		<th>mpregen<%= link_to 'Sort', 
-			champion_index_path(champion_category: :mpregen) %></th>
-		<th>mpregenperlvl<%= link_to 'Sort', 
-			champion_index_path(champion_category: :mpregenperlvl) %></th>
-		<th>mr<%= link_to 'Sort', 
-			champion_index_path(champion_category: :mr) %></th>
-		<th>mrperlvl<%= link_to 'Sort', 
-			champion_index_path(champion_category: :mrperlvl) %></th>
-		<th>adatmax<%= link_to 'Sort', 
-			champion_index_path(champion_category: :adatmax) %></th>
-		<th>armoratmax<%= link_to 'Sort', 
-			champion_index_path(champion_category: :armoratmax) %></th>
-		<th>hpatmax<%= link_to 'Sort', 
-			champion_index_path(champion_category: :hpatmax) %></th>
-		<th>hpregenatmax<%= link_to 'Sort', 
-			champion_index_path(champion_category: :hpregenatmax) %></th>
-		<th>mpatmax<%= link_to 'Sort', 
-			champion_index_path(champion_category: :mpatmax) %></th>
-		<th>mpregenatmax<%= link_to 'Sort', 
-			champion_index_path(champion_category: :mpregenatmax) %></th>
-		<th>asatmax<%= link_to 'Sort', 
-			champion_index_path(champion_category: :asatmax) %></th>
-	</tr>
+		<th>Icon</th>
+		<% @champion.column_names.each_with_index do |column, index| %>
+			<% next if index <= 2 || index > 28 %>
+			<th><%= column %><%= link_to image_tag("icon-arrow-up-b-128.png",
+																						 size: "10",
+																						 alt: "Sort"), 
+				champion_index_path(stat: column) %></th>
+		<% end %>
 
 	<% @champion.each do |champion| %>
 		<tr>
-			<td><%= champion.name %></td>
+			<td><%= image_tag("#{champion.image_url}") %></td>
+			<td class="colname"><%= champion.name %></td>
 			<td><%= champion.armor %></td>
 			<td><%= champion.armorperlvl %></td>
 			<td><%= champion.ad %></td>
 			<td><%= champion.adperlvl %></td>
-			<td><%= champion.autorange %></td>
+			<td><%= champion.autorange.to_i %></td>
 			<td><%= champion.asoffset %></td>
 			<td><%= champion.asperlvl %></td>
 			<td><%= champion.hp %></td>
-			<td><%= champion.hpperlvl %></td>
+			<td class="colhplvl"><%= champion.hpperlvl %></td>
 			<td><%= champion.hpregen %></td>
 			<td><%= champion.hpregenperlvl %></td>
-			<td><%= champion.ms %></td>
+			<td><%= champion.ms.to_i %></td>
 			<td><%= champion.mp %></td>
 			<td><%= champion.mpperlvl %></td>
 			<td><%= champion.mpregen %></td>

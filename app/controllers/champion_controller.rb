@@ -1,13 +1,5 @@
 class ChampionController < ApplicationController
   def index
-  	@champion = Champion.order(params[:champion_category])
+  	@champion = Champion.order(params[:stat])
   end
-  
-  def show
-  	@champion = Champion.all
-  end
-=begin
-  def sort(category)
-  	@champion = Champion.order(category)
-=end
 end

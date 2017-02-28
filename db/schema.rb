@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217012732) do
+ActiveRecord::Schema.define(version: 20170228033746) do
 
   create_table "champions", force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170217012732) do
     t.float    "mpregenatmax"
     t.float    "asatmax"
     t.float    "adatmax"
+    t.string   "image_url"
   end
 
 end
