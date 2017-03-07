@@ -1,17 +1,27 @@
+<div id="topHeader">
+	<%= image_tag("", :id => "champIconHeader") %>
+</div>
 <table>
 		<th>Icon</th>
 		<% @champion.column_names.each_with_index do |column, index| %>
 			<% next if index <= 2 || index > 28 %>
-			<th><%= column %><%= link_to image_tag("icon-arrow-up-b-128.png",
-																						 size: "10",
-																						 alt: "Sort"), 
-				champion_index_path(stat: column) %></th>
+			<th><%= column %>
+			<%= link_to image_tag("icon-arrow-up-b-128.png",
+														:class => "sort-button",
+														size: "10",
+														alt: "Sort"), 
+														champion_index_path(sort: "#{column}") %>
+			<%= link_to image_tag("icon-arrow-down-b-128.png",
+														:class => "sort-button",
+														size: "10",
+														alt: "Sort"), 
+														champion_index_path(sort: "#{column} DESC") %></th>
 		<% end %>
 
 	<% @champion.each do |champion| %>
 		<tr>
-			<td><%= image_tag("#{champion.image_url}") %></td>
-			<td class="colname"><%= champion.name %></td>
+			<td><%= image_tag("#{champion.image_url}", :class => "champIcon") %></td>
+			<td class="colchampname"><%= champion.name %></td>
 			<td><%= champion.armor %></td>
 			<td><%= champion.armorperlvl %></td>
 			<td><%= champion.ad %></td>

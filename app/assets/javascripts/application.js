@@ -14,3 +14,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+window.onload = initPage;
+
+function initPage() {
+	champIcons = document.getElementsByClassName("champIcon");
+
+	for(var i=0; i<champIcons.length; i++) {
+		icon = champIcons[i];
+
+		icon.onclick = function() {
+			iconURL = this.src;
+			document.getElementById("champIconHeader").src = iconURL;
+		}
+	}
+}

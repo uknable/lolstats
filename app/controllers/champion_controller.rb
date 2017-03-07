@@ -1,5 +1,5 @@
 class ChampionController < ApplicationController
   def index
-  	@champion = Champion.order(params[:stat])
+  	@champion = Champion.order(params[:sort])
   end
 end
