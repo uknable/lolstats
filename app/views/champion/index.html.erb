@@ -5,17 +5,19 @@
 		<th>Icon</th>
 		<% @champion.column_names.each_with_index do |column, index| %>
 			<% next if index <= 2 || index > 28 %>
-			<th><%= column %>
-			<%= link_to image_tag("icon-arrow-up-b-128.png",
-														:class => "sort-button",
-														size: "10",
-														alt: "Sort"), 
-														champion_index_path(sort: "#{column}") %>
-			<%= link_to image_tag("icon-arrow-down-b-128.png",
-														:class => "sort-button",
-														size: "10",
-														alt: "Sort"), 
-														champion_index_path(sort: "#{column} DESC") %></th>
+			<th>
+				<%= column %>
+				<%= link_to image_tag("icon-arrow-up-b-128.png",
+															:class => "sort-button",
+															size: "10",
+															alt: "Sort"), 
+															champion_index_path(sort: "#{column}") %>
+				<%= link_to image_tag("icon-arrow-down-b-128.png",
+															:class => "sort-button",
+															size: "10",
+															alt: "Sort"), 
+															champion_index_path(sort: "#{column} DESC") %>
+			</th>
 		<% end %>
 
 	<% @champion.each do |champion| %>
